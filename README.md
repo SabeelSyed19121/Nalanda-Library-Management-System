@@ -156,8 +156,6 @@ JWT_EXPIRES_IN=1h
 BCRYPT_SALT_ROUNDS=10
 ```
 
----
-
 ## Installation & setup
 
 ```
@@ -165,16 +163,6 @@ npm install
 cp .env.example .env
 npm run dev
 ```
-
----
-
-## Deployment suggestions
-
-- Use MongoDB Atlas
-- Add NGINX reverse proxy
-- Add monitoring & logs
-
----
 
 ## Troubleshooting
 
@@ -187,8 +175,61 @@ Use non-SRV connection string.
 ### Race conditions
 Use MongoDB transactions or atomic updates.
 
----
 
 ## License
 MIT recommended.
 
+## Registration
+http://localhost:5000/api/auth/register
+
+{
+  "name": "sabel",
+  "email": "sabel@example.com",
+  "password": "12356",
+  "role": "admin"   
+}
+
+response
+
+{
+    "_id": "6928757474ddcef9efabd343",
+    "name": "sabel",
+    "email": "sabel@example.com",
+    "role": "admin",
+    "token": "nhDen+CW4ZqFh+9XOycOfA==:Y0m0j2Sez9k7gyBc0Go/OnflUm0TmqQPb54uFLyZvv8bPiUeL4T1rPkbbMcm0x87SN4FXphDJ0q2E1ujvtERBSHCPbscIsawrSahmZAnFtyfifaeSERjLzP7s6glpdwizvpxOv17VPp9n4WEU8ajEvgevpVxWb5OI86AsmduPbe/Cv5tt3CEvs0BBOpbx+kJTsQRXWwoXqSPCdWcd21bsvYdIIzIzabAeqA7R1eTof4="
+}
+
+## Login
+http://localhost:5000/api/auth/login
+
+{
+  "email": "sabel@example.com",
+  "password": "12356"
+}
+
+## Adding books
+http://localhost:5000/api/books
+
+{
+  "title": "The Alchemist",
+  "author": "Paulo Coelho",
+  "isbn": "9780061122415",
+  "publicationDate": "1988-04-14",
+  "genre": "comics",
+  "totalCopies": 5
+}
+
+## update Book
+http://localhost:5000/api/books/6928773274ddcef9efabd347
+
+{
+  "title": "The Alchemist",
+  "author": "Paulo Coelho",
+  "isbn": "9780061122415",
+  "publicationDate": "1988-04-14",
+  "genre": "comics",
+  "totalCopies": 20
+}
+
+## Delete book
+http://localhost:5000/api/books/6928773274ddcef9efabd347
